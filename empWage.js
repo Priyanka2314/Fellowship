@@ -1,7 +1,36 @@
-//UseCase1
+//UseCase1 IF Else condition
+{
 const IS_ABSENT=0;
 let empcheck= Math.floor(Math.random() * 10) % 2;
 if(empcheck == IS_ABSENT)
-console.log("UC1 - Employee is Absent");
+console.log("UC1 - Employee is Absent. Existing the program");
 else
 console.log("UC1 - Employee is Present");
+}
+
+//UC2 Switch Case
+const IS_PART_TIME = 1;
+const IS_FULL_TIME = 2;
+const PART_TIME_HOURS = 4;
+const FULL_TIME_HOURS = 8;
+const WAGE_PER_HOUR = 20;
+{
+  let empHrs = 0;
+  let empcheck = Math.floor(Math.random() * 10) % 3;
+  switch(empcheck){
+      case IS_PART_TIME:
+          empHrs = PART_TIME_HOURS;
+          break;
+      case IS_FULL_TIME:
+          empHrs = FULL_TIME_HOURS; 
+          break;
+      default :
+          empHrs=0;
+  }
+  let empWage=empHrs* WAGE_PER_HOUR;
+  console.log("UC2 - Emp Wage: "+ empWage);
+
+}
+
+
+
