@@ -3,8 +3,7 @@ const IS_FULL_TIME = 2;
 const PART_TIME_HOURS = 4;
 const FULL_TIME_HOURS = 8;
 const WAGE_PER_HOUR = 20;  
-let empDailyWageMap = new Map(); //UC 8 & UC 9
-let empDailyHrsMap = new Map; //UC9
+
 
   function getWorkingHours(empCheck){
    switch(empCheck){
@@ -19,9 +18,13 @@ let empDailyHrsMap = new Map; //UC9
 
 const NUM_OF_WORKING_DAYS= 20;
 const MAX_HRS_IN_MONTH=160;
-let totalEmpHrs =0;
+
+{let totalEmpHrs =0;
 let totalWorkingDays =0;
 let empDailyWageArr = new Array();
+let empDailyWageMap = new Map(); //UC 8 & UC 9
+let empDailyHrsMap = new Map; //UC9
+let empDailyHrsAndWageArr = new Array(); //UC 10
 
 function calcDailyWage(empHrs){
  return empHrs * WAGE_PER_HOUR;
@@ -32,9 +35,21 @@ while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
  let empCheck = Math.floor(Math.random() * 10) % 3;
  let empHrs =getWorkingHours(empCheck);
  totalEmpHrs +=empHrs;
- empDailyWageArr.push(calcDailyWage(empHrs));
- empDailyWageMap.set(totalWorkingDays,calcDailyWage(empHrs)); //for UC 8 and Uc9
- empDailyHrsMap.set(totalWorkingDays,empHrs); // UC 9
+  empDailyWageArr.push(calcDailyWage(empHrs));
+  empDailyWageMap.set(totalWorkingDays,calcDailyWage(empHrs)); //for UC 8 and Uc9
+  empDailyHrsMap.set(totalWorkingDays,empHrs); // UC 9
+   
+ empDailyHrsAndWageArr.push(      //UC 10
+     {
+       dayNum:totalWorkingDays,
+       dailyHours:empHrs,
+       dailyWage:calcDailyWage(empHrs),
+       toString(){
+           return '\nDay' + this.dayNum + '=> Working Hours is ' + this.dailyHours + ' And Wage Earned =' + this.dailyWage
+       },
+
+     });
+ 
 }
 
 let empWage=calcDailyWage(totalEmpHrs);
@@ -128,3 +143,9 @@ empDailyHrsMap.forEach((value,key) => {
 console.log("Full Working Days: "+fullWorkingDays);
 console.log("Part Working Days: "+partWorkingfDays);
 console.log("NOn Working Days: "+nonWorkingDays);
+
+
+// UC 10 Object Creation
+
+console.log("UC 10 showing Daily Hours Worked and Wage Earned: "+empDailyHrsAndWageArr);
+}
