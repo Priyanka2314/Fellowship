@@ -1,6 +1,8 @@
 //UC 1 pincode validation for 6 digit number
-let pinCodeRegex=RegExp('^[0-9]{6}$');
+//let pinCodeRegex=RegExp('^[0-9]{6}$');
 
+//UC 2 - pincode restricts alphabets or characters at the beigining
+let pinCodeRegex=RegExp('^[0-9]{1}[0-9]{5}$');
 function pinCodeValidation(pincode){
     if(pinCodeRegex.test(pincode)){
         console.log(pincode+" is valid");
@@ -9,7 +11,7 @@ function pinCodeValidation(pincode){
 }
 try{
     let user_input = require('readline-sync');
-    let pincode = user_input.question("Please enter the pin code");
+    let pincode = user_input.question("Please enter the pin code ");
     pinCodeValidation(pincode);
     console.log(pincode);
 }catch(e){
