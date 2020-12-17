@@ -2,7 +2,8 @@
 //let pinCodeRegex=RegExp('^[0-9]{6}$');
 
 //UC 2 - pincode restricts alphabets or characters at the beigining
-let pinCodeRegex=RegExp('^[0-9]{1}[0-9]{5}$');
+//UC 3 - pincode restricts alphabets or characters at the end
+let pinCodeRegex=RegExp('^[0-9]{3}[ ]*[0-9]{3}$');
 function pinCodeValidation(pincode){
     if(pinCodeRegex.test(pincode)){
         console.log(pincode+" is valid");
