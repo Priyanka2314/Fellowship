@@ -7,9 +7,10 @@
 const user_input = require('readline-sync');
 let emailRegEx = RegExp("^[a-z]{3,}");
 let emailRegEx2 = RegExp("^[a-z]{3,}[@][a-z]{2,}$");
+let emailRegEx3 = RegExp("^[a-z]{3,}[@][a-z]{2,}[.][a-z]{2}$");
 
 function emailVaildation(email){
-    if(emailRegEx2.test(email)){
+    if(emailRegEx3.test(email)){
         console.log(email+" is valid");
         return true;
     }
