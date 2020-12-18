@@ -1,16 +1,18 @@
 /**
- * email format : abc.xyz@bridgelabz..co.in
+ * email format : abc.xyz@bridgelabz.co.in
  * UC1 validating firt part of the email i.e. abc
  * UC2 validating second part of the email pattern
  * UC3 validating third part .co in email
+ * UC4 validating first optional part .xyz
  */
 const user_input = require('readline-sync');
 let emailRegEx = RegExp("^[a-z]{3,}");
 let emailRegEx2 = RegExp("^[a-z]{3,}[@][a-z]{2,}$");
 let emailRegEx3 = RegExp("^[a-z]{3,}[@][a-z]{2,}[.][a-z]{2}$");
+let emailRegEx4 = RegExp("^[a-z]{3,}([_+-.][a-z0-9]+)[@][a-z]{2,}[.][a-z]{2}$");
 
 function emailVaildation(email){
-    if(emailRegEx3.test(email)){
+    if(emailRegEx4.test(email)){
         console.log(email+" is valid");
         return true;
     }
